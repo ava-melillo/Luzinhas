@@ -45,11 +45,17 @@ function setup() {
   }
   
   document.body.style.overflow = 'hidden';
+  document.body.style.setProperty('overscroll-behavior', "none");
   
   lightColor = color(0, 0, 0, 0);
   light = new Luz(lightColor, lightSize, lightDetectionRadius);
-  img.resize(windowWidth, 0);
-  
+  if (windowWidth > windowHeight) {
+    
+    img.resize(windowWidth, 0);
+  } else {
+    
+    img.resize(0, windowHeight);
+  }
   
 }
 
@@ -78,7 +84,6 @@ function radialGradient(start_x, start_y, startRadius, end_x, end_y, endRadius, 
   
   gradient.addColorStop(0, colorStart);
   gradient.addColorStop(1, colorEnd);
-  
   drawingContext.fillStyle = gradient;
   
 }
@@ -90,7 +95,14 @@ function mouseClicked() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  img.resize(windowWidth, 0);
+  if (windowWidth > windowHeight) {
+    
+    img.resize(windowWidth, 0)
+
+  } else {
+    
+    img.resize(0, windowHeight);
+  }
 }
 
 function touchStarted() {
