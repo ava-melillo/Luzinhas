@@ -13,6 +13,7 @@ let lightDetectionRadius = 800;
 
 let backgroundSound;
 let img;
+let touchDetected = false;
 
 function preload() {
 
@@ -90,4 +91,10 @@ function mouseClicked() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   img.resize(windowWidth, 0);
+}
+
+function touchStarted() {
+
+  touchDetected = true;
+  if (backgroundSound.isPlaying() == false) backgroundSound.loop();
 }

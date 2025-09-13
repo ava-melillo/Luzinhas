@@ -9,25 +9,40 @@ class Luz {
     
   }
   
-  showOnCursor(){
+  showOnCursor(touchDetected){
   
+    if (touchDetected) {
+      
+      let touch = touches[0];
     
-    radialGradient(
+      radialGradient(
     
-      mouseX, mouseY, 0,
-      mouseX, mouseY, this.size/2,
+      touch.x, touch.y, 0,
+      touch.x, touch.y, this.size/2,
       this.lightColor,
       color(0, 0, 0, 230)
-    );
+      );
     
-    //fill(this.lightColor);
-    this.position.x = mouseX;
-    this.position.y = mouseY;
+      this.position.x = touch.x;
+      this.position.y = touch.y;
+      
+    } else {
+    
+      radialGradient(
+      
+        mouseX, mouseY, 0,
+        mouseX, mouseY, this.size/2,
+        this.lightColor,
+        color(0, 0, 0, 230)
+      );
+      
+      this.position.x = mouseX;
+      this.position.y = mouseY;
+    
+    }
     
     //push();
     rect(0, 0, windowWidth, windowHeight);
-    //background(0);  
-    //circle(this.position.x, this.position.y, this.size);
     //pop();
   }
 }
