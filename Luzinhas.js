@@ -1,5 +1,5 @@
 let aleluias = [];
-let numberElements = 50;
+let numberElements = 35;
 
 let acolor = 255;
 let speed = 10;
