@@ -17,7 +17,7 @@ class Luz {
       mouseX, mouseY, 0,
       mouseX, mouseY, this.size/2,
       this.lightColor,
-      color(0, 0, 0, 0)
+      color(0, 0, 0, 230)
     );
     
     //fill(this.lightColor);
@@ -25,7 +25,9 @@ class Luz {
     this.position.y = mouseY;
     
     //push();
-    circle(this.position.x, this.position.y, this.size);
+    rect(0, 0, windowWidth, windowHeight);
+    //background(0);  
+    //circle(this.position.x, this.position.y, this.size);
     //pop();
   }
 }

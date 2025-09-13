@@ -1,8 +1,6 @@
 let aleluias = [];
 let numberElements = 50;
 
-let asas;
-
 let acolor = 255;
 let speed = 10;
 let size = 7;
@@ -10,7 +8,7 @@ let jiggle = 30;
 
 let light;
 let lightColor;
-let lightSize = 600;
+let lightSize = 400;
 let lightDetectionRadius = 800;
 
 let backgroundSound;
@@ -43,12 +41,11 @@ function setup() {
     
     ));
     
-    //asas = new Aleluia (windowWidth/2, windowHeight/2, 0, 0, 0, size, 0, acolor);
   }
   
   document.body.style.overflow = 'hidden';
   
-  lightColor = color(255, 230, 100, 100);
+  lightColor = color(0, 0, 0, 0);
   light = new Luz(lightColor, lightSize, lightDetectionRadius);
   img.resize(windowWidth, 0);
   
@@ -58,19 +55,14 @@ function setup() {
 function draw() {
   
   image(img, 0, 0);
-  background(0);  
 
   light.showOnCursor();
-  
-  //asas.move(light);
-  //asas.show();
-  
+
   for (i in aleluias){
     
     aleluias[i].move(light);
     aleluias[i].show();
   }
-
 }
 
 function randomFloat(min, max) {
