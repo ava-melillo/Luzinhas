@@ -99,7 +99,6 @@ class Aleluia{
     
     if (this.wingUp == true){
       
-      print("baixo");
       rotate(QUARTER_PI/2);
       ellipse(0 - this.size*2, 0, this.size*4, this.size); 
       rotate(-QUARTER_PI/2);
@@ -110,7 +109,6 @@ class Aleluia{
       
     } else {
     
-      print("cima");
       rotate(-QUARTER_PI/2);
       ellipse(0 - this.size*2, 0, this.size*4, this.size); 
       rotate(QUARTER_PI/2);

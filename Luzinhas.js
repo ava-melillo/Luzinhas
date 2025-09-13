@@ -14,10 +14,12 @@ let lightSize = 600;
 let lightDetectionRadius = 800;
 
 let backgroundSound;
+let img;
 
 function preload() {
 
   backgroundSound = loadSound("tardinha.mp3");
+  img = loadImage('mata.jpg');
 }
 
 function setup() {
@@ -48,14 +50,16 @@ function setup() {
   
   lightColor = color(255, 230, 100, 100);
   light = new Luz(lightColor, lightSize, lightDetectionRadius);
+  img.resize(windowWidth, 0);
   
   
 }
 
 function draw() {
   
-  background(0);
-  
+  image(img, 0, 0);
+  background(0);  
+
   light.showOnCursor();
   
   //asas.move(light);
@@ -87,9 +91,11 @@ function radialGradient(start_x, start_y, startRadius, end_x, end_y, endRadius, 
 }
 
 function mouseClicked() {
-  backgroundSound.loop();
+  
+  if (backgroundSound.isPlaying() == false) backgroundSound.loop();
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  img.resize(windowWidth, 0);
 }

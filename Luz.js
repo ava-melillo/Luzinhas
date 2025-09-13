@@ -24,9 +24,9 @@ class Luz {
     this.position.x = mouseX;
     this.position.y = mouseY;
     
-    push();
+    //push();
     circle(this.position.x, this.position.y, this.size);
-    pop();
+    //pop();
   }
 }
 
