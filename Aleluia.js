@@ -43,33 +43,41 @@ class Aleluia{
   
   manageCollision(){
     
-    if (this.position.x > windowWidth - this.jiggle || this.position.x < this.jiggle){
+    if (this.position.x > windowWidth - this.jiggle){
     
+      this.position.x = windowWidth - this.jiggle;
       this.speed.x *= -1;
     }
-    if (this.position.y > windowHeight - this.jiggle || this.position.y < this.jiggle){
+    else if (this.position.x < this.jiggle){
     
+      this.position.x = this.jiggle;
+      this.speed.x *= -1;
+    }
+    
+    
+    if (this.position.y > windowHeight - this.jiggle){
+    
+      this.position.y =  windowHeight - this.jiggle;
+      this.speed.y *= -1;
+    }
+    else if (this.position.y < this.jiggle){
+    
+      this.position.y = this.jiggle;
       this.speed.y *= -1;
     }
   }
   
-  manageAttraction(light){
+  manageAttraction(light) {
     
-    if (this.position.x > (light.position.x - light.detectionDiameter/2) && this.position.x < (light.position.x + light.detectionDiameter/2)){
-      if (this.position.y > (light.position.y - light.detectionDiameter/2) && this.position.y < (light.position.y + light.detectionDiameter/2)){
+    if (dist(this.position.x, this.position.y, light.position.x, light.position.y) < light.detectionDiameter/2){
       
-        //print("ueeepaaa entrou hein");
-        let distance = dist(mouseX, mouseY, this.position.x, this.position.y);
-        let vx = (mouseX - this.position.x)/distance;
-        let vy = (mouseY - this.position.y)/distance;
-        this.position.x += vx;
-        this.position.y += vy;
-        this.nearLight = true;
-      
-      } else {
-      
-        this.nearLight = false;
-      }
+      //print("ueeepaaa entrou hein");
+      let distance = dist(mouseX, mouseY, this.position.x, this.position.y);
+      let vx = (mouseX - this.position.x)/distance;
+      let vy = (mouseY - this.position.y)/distance;
+      this.position.x += vx;
+      this.position.y += vy;
+      this.nearLight = true;
       
     } else {
     

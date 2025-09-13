@@ -1,5 +1,5 @@
 let aleluias = [];
-let numberElements = 40;
+let numberElements = 50;
 
 let asas;
 
@@ -15,7 +15,7 @@ let lightDetectionRadius = 800;
 
 let backgroundSound;
 
-function preload(){
+function preload() {
 
   backgroundSound = loadSound("tardinha.mp3");
 }
@@ -88,4 +88,8 @@ function radialGradient(start_x, start_y, startRadius, end_x, end_y, endRadius, 
 
 function mouseClicked() {
   backgroundSound.loop();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
