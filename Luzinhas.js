@@ -107,6 +107,9 @@ function windowResized() {
 
 function touchStarted() {
 
-  touchDetected = true;
-  if (backgroundSound.isPlaying() == false) backgroundSound.loop();
+  if (touchDetected == false){
+    
+    if (backgroundSound.isPlaying() == false) backgroundSound.loop();
+    touchDetected = true;
+  }
 }

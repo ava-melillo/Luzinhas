@@ -20,7 +20,7 @@ class Luz {
       touch.x, touch.y, 0,
       touch.x, touch.y, this.size/2,
       this.lightColor,
-      color(0, 0, 0, 230)
+      color(0, 0, 0, 248)
       );
     
       this.position.x = touch.x;
